@@ -669,7 +669,7 @@
       <div class="field">
         <label>Bus</label>
         <div class="select-wrap">
-          <select id="q-bus">
+          <select id="q-bus" onchange="buscarRegistros()">
             <option value="">Todos los buses</option>
             <option value="bus1">A6W - Rojo (A6W-798)</option>
             <option value="bus2">B3H - Blanco (B3H-708)</option>
@@ -686,7 +686,7 @@
         </div>
       </div>
       <button class="search-btn" id="btn-buscar" onclick="buscarRegistros()">
-        🔍 Buscar
+        🔄 Actualizar
       </button>
     </div>
     <div id="results-area" class="results-area">
@@ -731,6 +731,7 @@
       document.getElementById('page-' + page).classList.add('active');
       document.getElementById('nav-' + page).classList.add('active');
       window.scrollTo(0, 0);
+      if (page === 'consulta') buscarRegistros();  // ← carga automática
     }
     function goToRegister(tab) { showPage('register'); switchTab(tab); }
     function goToConsulta(tipo) { showPage('consulta'); setChip(tipo); }
@@ -744,6 +745,7 @@
       currentChip = chip;
       document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
       document.getElementById('chip-' + chip).classList.add('active');
+      buscarRegistros();  // ← recarga al cambiar filtro
     }
 
     // ── MES NAVEGADOR ────────────────────────────────────────────────
@@ -758,6 +760,7 @@
       if (selectedMonth.month < 0)  { selectedMonth.month = 11; selectedMonth.year--; }
       if (selectedMonth.month > 11) { selectedMonth.month = 0;  selectedMonth.year++; }
       renderMonthLabel();
+      buscarRegistros();  // ← recarga al cambiar mes
     }
 
     // ── INIT ─────────────────────────────────────────────────────────

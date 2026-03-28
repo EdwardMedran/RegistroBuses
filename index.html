@@ -57,15 +57,8 @@
       line-height: 1;
     }
     .app-header .logo span { color: var(--accent); }
-    .app-header .sub {
-      font-size: 12px;
-      color: #aaa;
-      font-weight: 400;
-    }
-    .header-icon {
-      font-size: 28px;
-      line-height: 1;
-    }
+    .app-header .sub { font-size: 12px; color: #aaa; font-weight: 400; }
+    .header-icon { font-size: 28px; line-height: 1; }
 
     /* ── BOTTOM NAV ── */
     .bottom-nav {
@@ -124,12 +117,7 @@
       font-size: 52px;
       opacity: 0.15;
     }
-    .greeting h2 {
-      font-family: 'Lexend', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
+    .greeting h2 { font-family: 'Lexend', sans-serif; font-size: 22px; font-weight: 800; margin-bottom: 4px; }
     .greeting p { color: #aaa; font-size: 14px; }
 
     .section-title {
@@ -142,7 +130,6 @@
       margin: 20px 0 10px;
     }
 
-    /* Bus cards */
     .bus-cards { display: flex; flex-direction: column; gap: 10px; }
     .bus-card {
       background: var(--surface);
@@ -155,26 +142,16 @@
       box-shadow: var(--shadow);
     }
     .bus-icon {
-      width: 48px;
-      height: 48px;
+      width: 48px; height: 48px;
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; flex-shrink: 0;
     }
     .bus-icon.c1 { background: #fff3e0; }
     .bus-icon.c2 { background: #e8f5e9; }
     .bus-icon.c3 { background: #e3f2fd; }
     .bus-info { flex: 1; min-width: 0; }
-    .bus-name {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--text);
-    }
-    .bus-detail { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .bus-name { font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 16px; color: var(--text); }
     .bus-plate {
       background: var(--bg);
       border: 1px solid var(--border);
@@ -187,7 +164,6 @@
       letter-spacing: 1px;
     }
 
-    /* Quick action grid */
     .quick-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -220,13 +196,7 @@
     .quick-btn .q-icon.pay  { background: #e8f5e9; }
     .quick-btn .q-icon.hist { background: #e3f2fd; }
     .quick-btn .q-icon.rep  { background: #fce4ec; }
-    .quick-btn .q-label {
-      font-family: 'Lexend', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.2;
-    }
+    .quick-btn .q-label { font-family: 'Lexend', sans-serif; font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.2; }
     .quick-btn .q-sub { font-size: 12px; color: var(--muted); }
 
     /* ── FORMS ── */
@@ -316,8 +286,8 @@
     }
     .submit-btn:active { transform: scale(0.98); opacity: 0.9; }
     .submit-btn.green { background: var(--accent2); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-    /* Tabs inside register page */
     .reg-tabs {
       display: flex;
       background: var(--border);
@@ -408,6 +378,7 @@
       transition: opacity 0.2s;
     }
     .search-btn:active { opacity: 0.8; }
+    .search-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
     .results-area { margin-top: 14px; }
     .result-item {
@@ -430,12 +401,7 @@
     .result-dot.fuel { background: var(--accent); }
     .result-dot.pay  { background: var(--accent2); }
     .result-meta { flex: 1; }
-    .result-title {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--text);
-    }
+    .result-title { font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 15px; color: var(--text); }
     .result-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
     .result-amount {
       font-family: 'Lexend', sans-serif;
@@ -443,19 +409,15 @@
       font-size: 18px;
       color: var(--text);
       text-align: right;
+      white-space: nowrap;
     }
     .result-amount.fuel { color: var(--accent); }
     .result-amount.pay  { color: var(--accent2); }
 
-    .empty-state {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--muted);
-    }
+    .empty-state { text-align: center; padding: 40px 20px; color: var(--muted); }
     .empty-state .e-icon { font-size: 48px; margin-bottom: 12px; }
     .empty-state p { font-size: 15px; line-height: 1.5; }
 
-    /* Summary totals */
     .summary-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -469,20 +431,8 @@
       padding: 14px;
       box-shadow: var(--shadow);
     }
-    .summary-card .s-label {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 4px;
-    }
-    .summary-card .s-val {
-      font-family: 'Lexend', sans-serif;
-      font-weight: 800;
-      font-size: 20px;
-      color: var(--text);
-    }
+    .summary-card .s-label { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+    .summary-card .s-val { font-family: 'Lexend', sans-serif; font-weight: 800; font-size: 20px; color: var(--text); }
     .summary-card .s-val.fuel { color: var(--accent); }
     .summary-card .s-val.pay  { color: var(--accent2); }
 
@@ -505,10 +455,7 @@
       z-index: 999;
       white-space: nowrap;
     }
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
     .toast.success { background: var(--accent2); }
     .toast.error   { background: var(--danger); }
 
@@ -566,7 +513,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="app-header">
     <div class="header-icon">🚌</div>
     <div>
@@ -574,8 +520,6 @@
       <div class="sub">Control de flota</div>
     </div>
   </header>
-
-  <!-- PAGES -->
 
   <!-- HOME -->
   <div class="page active" id="page-home">
@@ -612,23 +556,17 @@
     <div class="bus-cards">
       <div class="bus-card">
         <div class="bus-icon c1">🚌</div>
-        <div class="bus-info">
-          <div class="bus-name">A6W - Rojo</div>
-        </div>
+        <div class="bus-info"><div class="bus-name">A6W - Rojo</div></div>
         <div class="bus-plate">A6W-798</div>
       </div>
       <div class="bus-card">
         <div class="bus-icon c2">🚌</div>
-        <div class="bus-info">
-          <div class="bus-name">B3H - Blanco</div>
-        </div>
+        <div class="bus-info"><div class="bus-name">B3H - Blanco</div></div>
         <div class="bus-plate">B3H-708</div>
       </div>
       <div class="bus-card">
         <div class="bus-icon c3">🚌</div>
-        <div class="bus-info">
-          <div class="bus-name">V3E - Volvo</div>
-        </div>
+        <div class="bus-info"><div class="bus-name">V3E - Volvo</div></div>
         <div class="bus-plate">V3E-330</div>
       </div>
     </div>
@@ -637,22 +575,16 @@
   <!-- REGISTRAR -->
   <div class="page" id="page-register">
     <div class="reg-tabs">
-      <button class="reg-tab active" id="tab-combustible" onclick="switchTab('combustible')">
-        ⛽ Combustible
-      </button>
-      <button class="reg-tab" id="tab-pago" onclick="switchTab('pago')">
-        💵 Pago Chofer
-      </button>
+      <button class="reg-tab active" id="tab-combustible" onclick="switchTab('combustible')">⛽ Combustible</button>
+      <button class="reg-tab" id="tab-pago" onclick="switchTab('pago')">💵 Pago Chofer</button>
     </div>
 
-    <!-- Form combustible -->
     <div class="reg-form active" id="form-combustible">
       <div class="form-card">
         <div class="form-title">
           <div class="ft-icon" style="background:#fff3e0">⛽</div>
           Registrar Combustible
         </div>
-
         <div class="field">
           <label>Bus</label>
           <div class="select-wrap">
@@ -664,7 +596,6 @@
             </select>
           </div>
         </div>
-
         <div class="field-row">
           <div class="field">
             <label>Fecha</label>
@@ -675,26 +606,22 @@
             <input type="number" id="fc-monto" placeholder="Ej: 320.00" min="0" step="0.01" inputmode="decimal" />
           </div>
         </div>
-
         <div class="field">
           <label>Notas (opcional)</label>
           <input type="text" id="fc-notas" placeholder="Ej: Llanta baja al mismo tiempo" />
         </div>
-
-        <button class="submit-btn" onclick="guardarCombustible()">
+        <button class="submit-btn" id="btn-guardar-comb" onclick="guardarCombustible()">
           ✅ Guardar Combustible
         </button>
       </div>
     </div>
 
-    <!-- Form pago chofer -->
     <div class="reg-form" id="form-pago">
       <div class="form-card">
         <div class="form-title">
           <div class="ft-icon" style="background:#e8f5e9">💵</div>
           Registrar Pago a Chofer
         </div>
-
         <div class="field">
           <label>Bus</label>
           <div class="select-wrap">
@@ -706,12 +633,10 @@
             </select>
           </div>
         </div>
-
         <div class="field">
           <label>Chofer</label>
           <input type="text" id="fp-chofer" placeholder="Nombre del chofer" autocomplete="off" />
         </div>
-
         <div class="field-row">
           <div class="field">
             <label>Fecha</label>
@@ -722,13 +647,11 @@
             <input type="number" id="fp-monto" placeholder="Ej: 1500" min="0" step="0.01" inputmode="decimal" />
           </div>
         </div>
-
         <div class="field">
           <label>Notas (opcional)</label>
           <input type="text" id="fp-notas" placeholder="Ej: Pago semana del 14 al 20" />
         </div>
-
-        <button class="submit-btn green" onclick="guardarPago()">
+        <button class="submit-btn green" id="btn-guardar-pago" onclick="guardarPago()">
           ✅ Guardar Pago
         </button>
       </div>
@@ -737,13 +660,11 @@
 
   <!-- CONSULTAR -->
   <div class="page" id="page-consulta">
-
     <div class="filter-bar">
       <button class="filter-chip active" id="chip-todo" onclick="setChip('todo')">Todo</button>
       <button class="filter-chip" id="chip-combustible" onclick="setChip('combustible')">⛽ Combustible</button>
       <button class="filter-chip" id="chip-pago" onclick="setChip('pago')">💵 Pagos</button>
     </div>
-
     <div class="query-filters">
       <div class="field">
         <label>Bus</label>
@@ -764,11 +685,10 @@
           <button class="month-arrow" onclick="cambiarMes(1)">&#8594;</button>
         </div>
       </div>
-      <button class="search-btn" onclick="buscarRegistros()">
+      <button class="search-btn" id="btn-buscar" onclick="buscarRegistros()">
         🔍 Buscar
       </button>
     </div>
-
     <div id="results-area" class="results-area">
       <div class="empty-state">
         <div class="e-icon">📋</div>
@@ -777,28 +697,24 @@
     </div>
   </div>
 
-  <!-- BOTTOM NAV -->
   <nav class="bottom-nav">
     <button class="nav-btn active" id="nav-home" onclick="showPage('home')">
-      <span class="nav-icon">🏠</span>
-      Inicio
+      <span class="nav-icon">🏠</span>Inicio
     </button>
     <button class="nav-btn" id="nav-register" onclick="showPage('register')">
-      <span class="nav-icon">✏️</span>
-      Registrar
+      <span class="nav-icon">✏️</span>Registrar
     </button>
     <button class="nav-btn" id="nav-consulta" onclick="showPage('consulta')">
-      <span class="nav-icon">🔍</span>
-      Consultar
+      <span class="nav-icon">🔍</span>Consultar
     </button>
   </nav>
 
-  <!-- TOAST -->
   <div class="toast" id="toast"></div>
 
   <script>
-    // ── CONFIG ──────────────────────────────────────
+    // ── CONFIG ───────────────────────────────────────────────────────
     const API_URL = 'https://qdhsujchq3rs6d6om6yhbpj6e40fqcrt.lambda-url.sa-east-1.on.aws';
+
     const BUSES = {
       bus1: { nombre: 'A6W - Rojo',   placa: 'A6W-798', color: 'c1' },
       bus2: { nombre: 'B3H - Blanco', placa: 'B3H-708', color: 'c2' },
@@ -806,9 +722,9 @@
     };
 
     let currentChip = 'todo';
-    let selectedMonth; // { year, month } 0-indexed
+    let selectedMonth;
 
-    // ── NAVEGACIÓN ──────────────────────────────────
+    // ── NAVEGACIÓN ───────────────────────────────────────────────────
     function showPage(page) {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -816,39 +732,27 @@
       document.getElementById('nav-' + page).classList.add('active');
       window.scrollTo(0, 0);
     }
-
-    function goToRegister(tab) {
-      showPage('register');
-      switchTab(tab);
-    }
-
-    function goToConsulta(tipo) {
-      showPage('consulta');
-      setChip(tipo);
-    }
-
+    function goToRegister(tab) { showPage('register'); switchTab(tab); }
+    function goToConsulta(tipo) { showPage('consulta'); setChip(tipo); }
     function switchTab(tab) {
       document.querySelectorAll('.reg-tab').forEach(t => t.classList.remove('active'));
       document.querySelectorAll('.reg-form').forEach(f => f.classList.remove('active'));
       document.getElementById('tab-' + tab).classList.add('active');
       document.getElementById('form-' + tab).classList.add('active');
     }
-
     function setChip(chip) {
       currentChip = chip;
       document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
       document.getElementById('chip-' + chip).classList.add('active');
     }
 
-    // ── MES NAVEGADOR ────────────────────────────────
+    // ── MES NAVEGADOR ────────────────────────────────────────────────
     const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
                    'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-
     function renderMonthLabel() {
       document.getElementById('month-label').textContent =
         MESES[selectedMonth.month] + ' ' + selectedMonth.year;
     }
-
     function cambiarMes(delta) {
       selectedMonth.month += delta;
       if (selectedMonth.month < 0)  { selectedMonth.month = 11; selectedMonth.year--; }
@@ -856,33 +760,30 @@
       renderMonthLabel();
     }
 
-    // ── FECHA POR DEFECTO ───────────────────────────
+    // ── INIT ─────────────────────────────────────────────────────────
     function setHoy() {
       const hoy = new Date().toISOString().split('T')[0];
       document.getElementById('fc-fecha').value = hoy;
       document.getElementById('fp-fecha').value = hoy;
-
       const now = new Date();
       selectedMonth = { year: now.getFullYear(), month: now.getMonth() };
       renderMonthLabel();
     }
-
-    // ── HORA DEL DÍA ────────────────────────────────
     function setGreeting() {
       const h = new Date().getHours();
-      let g = h < 12 ? '¡Buenos días!' : h < 18 ? '¡Buenas tardes!' : '¡Buenas noches!';
+      const g = h < 12 ? '¡Buenos días!' : h < 18 ? '¡Buenas tardes!' : '¡Buenas noches!';
       document.querySelector('.greeting h2').textContent = g + ' 👋';
     }
 
-    // ── TOAST ───────────────────────────────────────
+    // ── TOAST ────────────────────────────────────────────────────────
     function showToast(msg, type = 'success') {
       const t = document.getElementById('toast');
       t.textContent = msg;
       t.className = 'toast ' + type + ' show';
-      setTimeout(() => t.classList.remove('show'), 2800);
+      setTimeout(() => t.classList.remove('show'), 3000);
     }
 
-    // ── VALIDAR ─────────────────────────────────────
+    // ── VALIDAR ──────────────────────────────────────────────────────
     function validar(campos) {
       for (const [id, label] of campos) {
         const el = document.getElementById(id);
@@ -895,7 +796,7 @@
       return true;
     }
 
-    // ── GUARDAR COMBUSTIBLE ─────────────────────────
+    // ── GUARDAR COMBUSTIBLE ──────────────────────────────────────────
     async function guardarCombustible() {
       if (!validar([['fc-bus','Bus'],['fc-fecha','Fecha'],['fc-monto','Monto']])) return;
 
@@ -904,13 +805,13 @@
         bus:   document.getElementById('fc-bus').value,
         fecha: document.getElementById('fc-fecha').value,
         monto: parseFloat(document.getElementById('fc-monto').value),
-        notas: document.getElementById('fc-notas').value,
+        notas: document.getElementById('fc-notas').value.trim(),
       };
 
       await enviarRegistro(payload, 'combustible');
     }
 
-    // ── GUARDAR PAGO ────────────────────────────────
+    // ── GUARDAR PAGO ─────────────────────────────────────────────────
     async function guardarPago() {
       if (!validar([['fp-bus','Bus'],['fp-chofer','Chofer'],['fp-fecha','Fecha'],['fp-monto','Monto']])) return;
 
@@ -920,46 +821,42 @@
         chofer: document.getElementById('fp-chofer').value.trim(),
         fecha:  document.getElementById('fp-fecha').value,
         monto:  parseFloat(document.getElementById('fp-monto').value),
-        notas:  document.getElementById('fp-notas').value,
+        notas:  document.getElementById('fp-notas').value.trim(),
       };
 
       await enviarRegistro(payload, 'pago');
     }
 
+    // ── ENVIAR A LAMBDA ──────────────────────────────────────────────
     async function enviarRegistro(payload, tipo) {
-      const btn = tipo === 'combustible'
-        ? document.querySelector('#form-combustible .submit-btn')
-        : document.querySelector('#form-pago .submit-btn');
-
+      const btnId = tipo === 'combustible' ? 'btn-guardar-comb' : 'btn-guardar-pago';
+      const btn = document.getElementById(btnId);
+      const textoOriginal = btn.textContent;
       btn.disabled = true;
       btn.textContent = 'Guardando...';
 
       try {
-        // ── SIMULACIÓN — eliminar estas 2 líneas cuando tengas la Lambda ──
-        await new Promise(r => setTimeout(r, 800));
-        console.log('Payload a enviar:', payload);
-        // ─────────────────────────────────────────────────────────────────
+        const res = await fetch(API_URL + '/registrar', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
 
-        // ── API REAL — descomentar cuando tengas la Lambda URL ──
-        // const res = await fetch(API_URL + '/registrar', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify(payload),
-        // });
-        // if (!res.ok) {
-        //   const err = await res.json().catch(() => ({}));
-        //   throw new Error(err.error || 'Error del servidor');
-        // }
-        // ───────────────────────────────────────────────────────
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || 'Error del servidor');
+        }
 
         showToast('✅ Guardado correctamente');
         limpiarForm(tipo);
+
       } catch (err) {
-        console.error(err);
+        console.error('Error al guardar:', err);
         showToast('❌ ' + (err.message || 'No se pudo guardar. Intente de nuevo.'), 'error');
       } finally {
         btn.disabled = false;
-        btn.textContent = tipo === 'combustible' ? '✅ Guardar Combustible' : '✅ Guardar Pago';
+        btn.textContent = textoOriginal;
       }
     }
 
@@ -979,50 +876,59 @@
       }
     }
 
-    // ── CONSULTAR ───────────────────────────────────
+    // ── CONSULTAR ────────────────────────────────────────────────────
     async function buscarRegistros() {
       const bus  = document.getElementById('q-bus').value;
       const tipo = currentChip === 'todo' ? '' : currentChip;
-
-      // Armar anio_mes desde el mes seleccionado
       const { year, month } = selectedMonth;
       const anio_mes = `${year}-${String(month + 1).padStart(2, '0')}`;
 
-      const area = document.getElementById('results-area');
+      const area   = document.getElementById('results-area');
+      const btnBus = document.getElementById('btn-buscar');
+
       area.innerHTML = '<div class="loading"><div class="spinner"></div> Buscando...</div>';
+      btnBus.disabled = true;
 
       try {
-        // ── SIMULACIÓN — eliminar estas 3 líneas cuando tengas la Lambda ──
-        await new Promise(r => setTimeout(r, 700));
-        const mockData = getMockData(bus, tipo);
-        renderResults(mockData);
-        // ─────────────────────────────────────────────────────────────────
+        const params = new URLSearchParams({ anio_mes });
+        if (bus)  params.set('bus', bus);
+        if (tipo) params.set('tipo', tipo);
 
-        // ── API REAL — descomentar cuando tengas la Lambda URL ──
-        // const params = new URLSearchParams({ anio_mes });
-        // if (bus)  params.set('bus', bus);
-        // if (tipo) params.set('tipo', tipo);
-        // const res = await fetch(API_URL + '/consultar?' + params);
-        // if (!res.ok) throw new Error('Error del servidor');
-        // const data = await res.json();
-        // renderResults(data.registros || []);
-        // ───────────────────────────────────────────────────────
+        const res = await fetch(API_URL + '/consultar?' + params);
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || 'Error del servidor');
+        }
+
+        renderResults(data.registros || []);
 
       } catch (err) {
-        console.error(err);
-        area.innerHTML = '<div class="empty-state"><div class="e-icon">❌</div><p>Error al consultar. Verifique su conexión.</p></div>';
+        console.error('Error al consultar:', err);
+        area.innerHTML = `<div class="empty-state">
+          <div class="e-icon">❌</div>
+          <p>${err.message || 'Error al consultar. Verifique su conexión.'}</p>
+        </div>`;
+      } finally {
+        btnBus.disabled = false;
       }
     }
 
+    // ── RENDERIZAR RESULTADOS ────────────────────────────────────────
     function renderResults(registros) {
       const area = document.getElementById('results-area');
+
       if (!registros.length) {
-        area.innerHTML = '<div class="empty-state"><div class="e-icon">🔍</div><p>No se encontraron registros con esos filtros.</p></div>';
+        area.innerHTML = '<div class="empty-state"><div class="e-icon">🔍</div><p>No hay registros para este mes.</p></div>';
         return;
       }
 
-      const totalComb = registros.filter(r=>r.tipo==='combustible').reduce((s,r)=>s+r.monto,0);
-      const totalPago = registros.filter(r=>r.tipo==='pago').reduce((s,r)=>s+r.monto,0);
+      const totalComb = registros
+        .filter(r => r.tipo === 'combustible')
+        .reduce((s, r) => s + parseFloat(r.monto || 0), 0);
+      const totalPago = registros
+        .filter(r => r.tipo === 'pago')
+        .reduce((s, r) => s + parseFloat(r.monto || 0), 0);
 
       let html = `<div class="summary-row">
         <div class="summary-card">
@@ -1036,13 +942,14 @@
       </div>`;
 
       for (const r of registros) {
-        const bus = BUSES[r.bus] || {};
-        const esComb = r.tipo === 'combustible';
-        const icono  = esComb ? '⛽' : '💵';
-        const clr    = esComb ? 'fuel' : 'pay';
+        const busInfo = BUSES[r.bus] || { nombre: r.bus };
+        const esComb  = r.tipo === 'combustible';
+        const icono   = esComb ? '⛽' : '💵';
+        const clr     = esComb ? 'fuel' : 'pay';
         const detalle = esComb
-          ? bus.nombre || r.bus
-          : `${bus.nombre || r.bus} • ${r.chofer || ''}`;
+          ? busInfo.nombre
+          : `${busInfo.nombre} • ${r.chofer || ''}`;
+        const monto = parseFloat(r.monto || 0).toFixed(2);
 
         html += `<div class="result-item">
           <div class="result-dot ${clr}"></div>
@@ -1051,30 +958,14 @@
             <div class="result-sub">${r.fecha} &nbsp;|&nbsp; ${detalle}</div>
             ${r.notas ? `<div class="result-sub" style="margin-top:2px;font-style:italic">${r.notas}</div>` : ''}
           </div>
-          <div class="result-amount ${clr}">S/. ${r.monto.toFixed(2)}</div>
+          <div class="result-amount ${clr}">S/. ${monto}</div>
         </div>`;
       }
 
       area.innerHTML = html;
     }
 
-    // Datos mock para prueba visual
-    function getMockData(bus, tipo) {
-      const all = [
-        { tipo:'combustible', bus:'bus1', fecha:'2025-03-25', monto:384, notas:'' },
-        { tipo:'pago',        bus:'bus1', fecha:'2025-03-22', monto:1500, chofer:'Juan Pérez', notas:'Semana del 17 al 22' },
-        { tipo:'combustible', bus:'bus2', fecha:'2025-03-24', monto:288, notas:'' },
-        { tipo:'pago',        bus:'bus2', fecha:'2025-03-20', monto:1400, chofer:'Carlos Ríos', notas:'' },
-        { tipo:'combustible', bus:'bus3', fecha:'2025-03-23', monto:448, notas:'Tanque lleno' },
-        { tipo:'pago',        bus:'bus3', fecha:'2025-03-21', monto:1600, chofer:'Miguel Torres', notas:'' },
-      ];
-      return all.filter(r =>
-        (!bus  || r.bus  === bus) &&
-        (!tipo || r.tipo === tipo)
-      );
-    }
-
-    // ── INIT ────────────────────────────────────────
+    // ── ARRANCAR ─────────────────────────────────────────────────────
     setHoy();
     setGreeting();
   </script>

@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta name="theme-color" content="#1a1a1a" />
-  <link rel="manifest" href="./Manifest.json" />
-  <link rel="apple-touch-icon" href="./icono.webp" />
   <title>Mis Buses</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -994,8 +992,15 @@
     }
 
     // ── INIT ─────────────────────────────────────────────────────────
+    function fechaLocal() {
+      const now = new Date();
+      const y = now.getFullYear();
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      return `${y}-${m}-${d}`;   // fecha del celular, no UTC
+    }
     function setHoy() {
-      const hoy = new Date().toISOString().split('T')[0];
+      const hoy = fechaLocal();
       document.getElementById('fc-fecha').value = hoy;
       document.getElementById('fp-fecha').value = hoy;
       const now = new Date();
@@ -1094,7 +1099,7 @@
     }
 
     function limpiarForm(tipo) {
-      const hoy = new Date().toISOString().split('T')[0];
+      const hoy = fechaLocal();
       if (tipo === 'combustible') {
         document.getElementById('fc-bus').value   = '';
         document.getElementById('fc-monto').value = '';
@@ -1147,6 +1152,14 @@
       }
     }
 
+    // ── FORMATEAR FECHA ──────────────────────────────────────────────
+    function fmtFecha(iso) {
+      // iso = "YYYY-MM-DD" → "DD/MM/YYYY"
+      if (!iso || iso.length < 10) return iso;
+      const [y, m, d] = iso.split('-');
+      return `${d}/${m}/${y}`;
+    }
+
     // ── RENDERIZAR RESULTADOS ────────────────────────────────────────
     function renderResults(registros) {
       const area = document.getElementById('results-area');
@@ -1191,7 +1204,7 @@
             <div class="result-meta" style="flex:1">
               <div class="result-badge">${icono} ${esComb ? 'Combustible' : 'Pago Chofer'}</div>
               <div class="result-title">${detalle}</div>
-              <div class="result-sub">${r.fecha}${r.notas ? ' &nbsp;·&nbsp; ' + r.notas : ''}</div>
+              <div class="result-sub">${fmtFecha(r.fecha)}${r.notas ? ' &nbsp;·&nbsp; ' + r.notas : ''}</div>
             </div>
             <div class="result-amount ${clr}">S/. ${monto}</div>
           </div>

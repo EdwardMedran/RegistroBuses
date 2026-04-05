@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta name="theme-color" content="#1a1a1a" />
-  <link rel="manifest" href="./Manifest.json" />
-  <link rel="apple-touch-icon" href="./icono.webp" />
   <title>Mis Buses</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -191,6 +189,7 @@
     .bus-icon.c1 { background: #fff3e0; }
     .bus-icon.c2 { background: #e8f5e9; }
     .bus-icon.c3 { background: #e3f2fd; }
+    .bus-icon.c4 { background: #f3e8ff; }
     .bus-info { flex: 1; min-width: 0; }
     .bus-name { font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 16px; color: var(--text); }
     .bus-plate {
@@ -519,6 +518,8 @@
     }
     .result-amount.fuel { color: var(--accent); }
     .result-amount.pay  { color: var(--accent2); }
+    .result-amount.otro { color: var(--accent3); }
+    .result-dot.otro    { background: var(--accent3); }
 
     .empty-state { text-align: center; padding: 40px 20px; color: var(--muted); }
     .empty-state .e-icon { font-size: 48px; margin-bottom: 12px; }
@@ -716,14 +717,14 @@
         <div class="q-label">Pago Chofer</div>
         <div class="q-sub">Registrar pago</div>
       </button>
-      <button class="quick-btn" onclick="goToConsulta('combustible')">
-        <div class="q-icon hist">📋</div>
-        <div class="q-label">Ver Combustible</div>
-        <div class="q-sub">Historial</div>
+      <button class="quick-btn" onclick="goToRegister('otro')">
+        <div class="q-icon rep">🔧</div>
+        <div class="q-label">Otro Gasto</div>
+        <div class="q-sub">Reparación, etc.</div>
       </button>
-      <button class="quick-btn" onclick="goToConsulta('pago')">
-        <div class="q-icon rep">📊</div>
-        <div class="q-label">Ver Pagos</div>
+      <button class="quick-btn" onclick="goToConsulta('todo')">
+        <div class="q-icon hist">📋</div>
+        <div class="q-label">Ver Todo</div>
         <div class="q-sub">Historial</div>
       </button>
     </div>
@@ -745,6 +746,11 @@
         <div class="bus-info"><div class="bus-name">V3E - Volvo</div></div>
         <div class="bus-plate">V3E-330</div>
       </div>
+      <div class="bus-card">
+        <div class="bus-icon c4">🚗</div>
+        <div class="bus-info"><div class="bus-name">Camioneta</div></div>
+        <div class="bus-plate" style="letter-spacing:0.5px;font-size:11px;color:var(--muted)">Personal</div>
+      </div>
     </div>
   </div>
 
@@ -752,7 +758,8 @@
   <div class="page" id="page-register">
     <div class="reg-tabs">
       <button class="reg-tab active" id="tab-combustible" onclick="switchTab('combustible')">⛽ Combustible</button>
-      <button class="reg-tab" id="tab-pago" onclick="switchTab('pago')">💵 Pago Chofer</button>
+      <button class="reg-tab" id="tab-pago" onclick="switchTab('pago')">💵 Chofer</button>
+      <button class="reg-tab" id="tab-otro" onclick="switchTab('otro')">🔧 Otros</button>
     </div>
 
     <div class="reg-form active" id="form-combustible">
@@ -769,6 +776,7 @@
               <option value="bus1">A6W - Rojo (A6W-798)</option>
               <option value="bus2">B3H - Blanco (B3H-708)</option>
               <option value="bus3">V3E - Volvo (V3E-330)</option>
+              <option value="cam1">🚗 Camioneta</option>
             </select>
           </div>
         </div>
@@ -806,6 +814,7 @@
               <option value="bus1">A6W - Rojo (A6W-798)</option>
               <option value="bus2">B3H - Blanco (B3H-708)</option>
               <option value="bus3">V3E - Volvo (V3E-330)</option>
+              <option value="cam1">🚗 Camioneta</option>
             </select>
           </div>
         </div>
@@ -832,6 +841,49 @@
         </button>
       </div>
     </div>
+    <!-- Form otros gastos -->
+    <div class="reg-form" id="form-otro">
+      <div class="form-card">
+        <div class="form-title">
+          <div class="ft-icon" style="background:#f3e8ff">🔧</div>
+          Registrar Otro Gasto
+        </div>
+        <div class="field">
+          <label>Vehículo</label>
+          <div class="select-wrap">
+            <select id="fo-bus">
+              <option value="">Seleccionar vehículo...</option>
+              <option value="bus1">A6W - Rojo (A6W-798)</option>
+              <option value="bus2">B3H - Blanco (B3H-708)</option>
+              <option value="bus3">V3E - Volvo (V3E-330)</option>
+              <option value="cam1">🚗 Camioneta</option>
+              <option value="general">General / Empresa</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label>Descripción</label>
+          <input type="text" id="fo-desc" placeholder="Ej: Cambio de llantas, frenos..." autocomplete="off" />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>Fecha</label>
+            <input type="date" id="fo-fecha" />
+          </div>
+          <div class="field">
+            <label>Monto (S/.)</label>
+            <input type="number" id="fo-monto" placeholder="Ej: 250.00" min="0" step="0.01" inputmode="decimal" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Notas (opcional)</label>
+          <input type="text" id="fo-notas" placeholder="Detalles adicionales..." />
+        </div>
+        <button class="submit-btn" id="btn-guardar-otro" onclick="guardarOtro()" style="background:var(--accent3);box-shadow:0 4px 14px rgba(29,78,137,0.35)">
+          ✅ Guardar Gasto
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- CONSULTAR -->
@@ -840,6 +892,7 @@
       <button class="filter-chip active" id="chip-todo" onclick="setChip('todo')">Todo</button>
       <button class="filter-chip" id="chip-combustible" onclick="setChip('combustible')">⛽ Combustible</button>
       <button class="filter-chip" id="chip-pago" onclick="setChip('pago')">💵 Pagos</button>
+      <button class="filter-chip" id="chip-otro" onclick="setChip('otro')">🔧 Otros</button>
     </div>
     <div class="query-filters">
       <div class="field">
@@ -850,6 +903,7 @@
             <option value="bus1">A6W - Rojo (A6W-798)</option>
             <option value="bus2">B3H - Blanco (B3H-708)</option>
             <option value="bus3">V3E - Volvo (V3E-330)</option>
+            <option value="cam1">🚗 Camioneta</option>
           </select>
         </div>
       </div>
@@ -890,6 +944,7 @@
             <option value="bus1">A6W - Rojo (A6W-798)</option>
             <option value="bus2">B3H - Blanco (B3H-708)</option>
             <option value="bus3">V3E - Volvo (V3E-330)</option>
+            <option value="cam1">🚗 Camioneta</option>
           </select>
         </div>
       </div>
@@ -908,6 +963,11 @@
       <div class="field" id="m-campo-chofer" style="display:none">
         <label>Chofer</label>
         <input type="text" id="m-chofer" placeholder="Nombre del chofer" autocomplete="off" />
+      </div>
+      <!-- Solo para otros gastos -->
+      <div class="field" id="m-campo-desc" style="display:none">
+        <label>Descripción</label>
+        <input type="text" id="m-desc" placeholder="Ej: Cambio de llantas..." autocomplete="off" />
       </div>
 
       <div class="field">
@@ -946,9 +1006,10 @@
     const API_URL = 'https://qdhsujchq3rs6d6om6yhbpj6e40fqcrt.lambda-url.sa-east-1.on.aws';
 
     const BUSES = {
-      bus1: { nombre: 'A6W - Rojo',   placa: 'A6W-798', color: 'c1' },
-      bus2: { nombre: 'B3H - Blanco', placa: 'B3H-708', color: 'c2' },
-      bus3: { nombre: 'V3E - Volvo',  placa: 'V3E-330', color: 'c3' },
+      bus1: { nombre: 'A6W - Rojo',     placa: 'A6W-798', color: 'c1' },
+      bus2: { nombre: 'B3H - Blanco',   placa: 'B3H-708', color: 'c2' },
+      bus3: { nombre: 'V3E - Volvo',    placa: 'V3E-330', color: 'c3' },
+      cam1: { nombre: 'Camioneta',      placa: '',         color: 'c4' },
     };
 
     let currentChip = 'todo';
@@ -1005,6 +1066,7 @@
       const hoy = fechaLocal();
       document.getElementById('fc-fecha').value = hoy;
       document.getElementById('fp-fecha').value = hoy;
+      document.getElementById('fo-fecha').value = hoy;
       const now = new Date();
       selectedMonth = { year: now.getFullYear(), month: now.getMonth() };
       renderMonthLabel();
@@ -1067,9 +1129,25 @@
       await enviarRegistro(payload, 'pago');
     }
 
+    // ── GUARDAR OTRO GASTO ──────────────────────────────────────────
+    async function guardarOtro() {
+      if (!validar([['fo-bus','Vehículo'],['fo-desc','Descripción'],['fo-fecha','Fecha'],['fo-monto','Monto']])) return;
+
+      const payload = {
+        tipo:   'otro',
+        bus:    document.getElementById('fo-bus').value,
+        desc:   document.getElementById('fo-desc').value.trim(),
+        fecha:  document.getElementById('fo-fecha').value,
+        monto:  parseFloat(document.getElementById('fo-monto').value),
+        notas:  document.getElementById('fo-notas').value.trim(),
+      };
+
+      await enviarRegistro(payload, 'otro');
+    }
+
     // ── ENVIAR A LAMBDA ──────────────────────────────────────────────
     async function enviarRegistro(payload, tipo) {
-      const btnId = tipo === 'combustible' ? 'btn-guardar-comb' : 'btn-guardar-pago';
+      const btnId = tipo === 'combustible' ? 'btn-guardar-comb' : tipo === 'pago' ? 'btn-guardar-pago' : 'btn-guardar-otro';
       const btn = document.getElementById(btnId);
       const textoOriginal = btn.textContent;
       btn.disabled = true;
@@ -1107,12 +1185,18 @@
         document.getElementById('fc-monto').value = '';
         document.getElementById('fc-notas').value = '';
         document.getElementById('fc-fecha').value = hoy;
-      } else {
+      } else if (tipo === 'pago') {
         document.getElementById('fp-bus').value    = '';
         document.getElementById('fp-chofer').value = '';
         document.getElementById('fp-monto').value  = '';
         document.getElementById('fp-notas').value  = '';
         document.getElementById('fp-fecha').value  = hoy;
+      } else {
+        document.getElementById('fo-bus').value   = '';
+        document.getElementById('fo-desc').value  = '';
+        document.getElementById('fo-monto').value = '';
+        document.getElementById('fo-notas').value = '';
+        document.getElementById('fo-fecha').value = hoy;
       }
     }
 
@@ -1177,8 +1261,12 @@
       const totalPago = registros
         .filter(r => r.tipo === 'pago')
         .reduce((s, r) => s + parseFloat(r.monto || 0), 0);
+      const totalOtro = registros
+        .filter(r => r.tipo === 'otro')
+        .reduce((s, r) => s + parseFloat(r.monto || 0), 0);
+      const totalTodo = totalComb + totalPago + totalOtro;
 
-      let html = `<div class="summary-row">
+      let html = `<div class="summary-row" style="grid-template-columns:1fr 1fr">
         <div class="summary-card">
           <div class="s-label">⛽ Combustible</div>
           <div class="s-val fuel">S/. ${totalComb.toFixed(2)}</div>
@@ -1187,16 +1275,29 @@
           <div class="s-label">💵 Pagos</div>
           <div class="s-val pay">S/. ${totalPago.toFixed(2)}</div>
         </div>
+      </div>
+      <div class="summary-row" style="grid-template-columns:1fr 1fr">
+        <div class="summary-card">
+          <div class="s-label">🔧 Otros</div>
+          <div class="s-val" style="color:var(--accent3)">S/. ${totalOtro.toFixed(2)}</div>
+        </div>
+        <div class="summary-card">
+          <div class="s-label">📊 Total</div>
+          <div class="s-val" style="color:var(--text)">S/. ${totalTodo.toFixed(2)}</div>
+        </div>
       </div>`;
 
       for (const r of registros) {
         const busInfo = BUSES[r.bus] || { nombre: r.bus };
         const esComb  = r.tipo === 'combustible';
-        const icono   = esComb ? '⛽' : '💵';
-        const clr     = esComb ? 'fuel' : 'pay';
+        const esOtro  = r.tipo === 'otro';
+        const icono   = esComb ? '⛽' : esOtro ? '🔧' : '💵';
+        const clr     = esComb ? 'fuel' : esOtro ? 'otro' : 'pay';
         const detalle = esComb
           ? busInfo.nombre
-          : `${busInfo.nombre} • ${r.chofer || ''}`;
+          : esOtro
+            ? (r.desc || 'Otro gasto') + (busInfo.nombre ? ' · ' + busInfo.nombre : '')
+            : `${busInfo.nombre} · ${r.chofer || ''}`;
         const monto = parseFloat(r.monto || 0).toFixed(2);
         const dataR  = encodeURIComponent(JSON.stringify(r));
 
@@ -1204,7 +1305,7 @@
           <div style="display:flex;gap:14px;align-items:flex-start">
             <div class="result-dot ${clr}" style="margin-top:5px;flex-shrink:0"></div>
             <div class="result-meta" style="flex:1">
-              <div class="result-badge">${icono} ${esComb ? 'Combustible' : 'Pago Chofer'}</div>
+              <div class="result-badge">${icono} ${esComb ? 'Combustible' : esOtro ? 'Otro Gasto' : 'Pago Chofer'}</div>
               <div class="result-title">${detalle}</div>
               <div class="result-sub">${fmtFecha(r.fecha)}${r.notas ? ' &nbsp;·&nbsp; ' + r.notas : ''}</div>
             </div>
@@ -1243,11 +1344,18 @@
       document.getElementById('m-notas').value = r.notas || '';
       // Mostrar campo chofer solo para pagos
       const campoCh = document.getElementById('m-campo-chofer');
+      const campoDesc = document.getElementById('m-campo-desc');
       if (r.tipo === 'pago') {
-        campoCh.style.display = '';
+        campoCh.style.display   = '';
+        campoDesc.style.display = 'none';
         document.getElementById('m-chofer').value = r.chofer || '';
+      } else if (r.tipo === 'otro') {
+        campoCh.style.display   = 'none';
+        campoDesc.style.display = '';
+        document.getElementById('m-desc').value = r.desc || '';
       } else {
-        campoCh.style.display = 'none';
+        campoCh.style.display   = 'none';
+        campoDesc.style.display = 'none';
       }
       document.getElementById('btn-confirmar-eliminar').style.display = '';
       document.getElementById('modal-overlay').classList.add('open');
@@ -1288,6 +1396,9 @@
       };
       if (registroActual.tipo === 'pago') {
         payload.chofer = document.getElementById('m-chofer').value.trim();
+      }
+      if (registroActual.tipo === 'otro') {
+        payload.desc = document.getElementById('m-desc').value.trim();
       }
 
       try {
